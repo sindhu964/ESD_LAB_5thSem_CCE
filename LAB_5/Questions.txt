@@ -1,0 +1,4 @@
+WAP to sort given array in ascending order using selection sort
+WAP to find the factorial of a given number using recursion
+WAP to generate a Fibonacci series till n using recursion
+WAP to sort the content of registers in ascending order using LDM and STM

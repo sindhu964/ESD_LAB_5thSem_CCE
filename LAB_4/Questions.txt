@@ -1,0 +1,6 @@
+WAP to convert 8 digit HEX number to equivalent ASCII. Store result in data memory
+WAP to convert 16 digit ASCII into its equivalent HEX
+WAP to convert 16 bit HEX into its equivalent decimal
+WAP to convert 8 digit BCD into its equivalent HEX
+WAP to sort a given array into ascending order using bubble sort
+WAP to search a given number in an array stored in the data memory if available insert 0xFFFFFFFFF at end of array otherwise insert that element at the end of the array

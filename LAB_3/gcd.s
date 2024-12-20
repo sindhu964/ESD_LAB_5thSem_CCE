@@ -1,0 +1,29 @@
+	AREA RESET, DATA, READONLY
+	EXPORT __Vectors
+
+__Vectors
+	DCD 0x10001000;Stack Pointervalue WBAC
+	DCD Reset_Handler;reset vectors
+	ALIGN 
+	AREA mycode, CODE, READONLY 
+	ENTRY
+	EXPORT Reset_Handler
+Reset_Handler
+	LDR R0,=NUM1
+	LDR R1,=NUM2
+	LDR R0,[R0]
+	LDR R1,[R1]
+UP CMP R0,R1
+	BEQ EXIT
+	SUBHI R0,R1
+	SUBLO R1,R0
+	B UP
+EXIT
+	LDR R2,=GCD
+	STR R0,[R2]
+STOP B STOP
+NUM1 DCD 23
+NUM2 DCD 4
+	AREA mydata, DATA, READWRITE
+GCD DCD 0
+	END

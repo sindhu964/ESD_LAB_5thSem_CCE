@@ -1,0 +1,35 @@
+	AREA RESET, DATA, READONLY
+	EXPORT __Vectors
+
+__Vectors
+	DCD 0x10001000;Stack Pointervalue WBAC
+	DCD Reset_Handler;reset vectors
+	ALIGN 
+	AREA mycode, CODE, READONLY 
+	ENTRY
+	EXPORT Reset_Handler
+Reset_Handler
+	LDR R0,=BCD
+	LDR R1,[R0]
+	;for 8 bit
+	;AND R2,R1,#0xF0
+	;LSR R2,#4
+	;AND R3,R1,#0x0F
+	;MOV R4,#0x0A
+	;MLA R5,R2,R4,R3
+	
+	;for 32 bit
+	MOV R3,#10
+LOOP 
+	AND R2,R1,#0xF0000000
+	LSR R2,#28
+	LSL R1,#4 
+	MLA R5,R5,R3,R2
+	CMP R1,#0 
+	BNE LOOP
+	LDR R0,=HEX
+	STR R5,[R0]
+BCD DCD 0x10000139
+	AREA mydata, DATA, READWRITE
+HEX DCD 0
+	END
